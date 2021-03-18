@@ -20,7 +20,7 @@ export const fetchList = async ({ commit }) => {
 export const fetchCoin = async ({ commit }, { id }) => {
   commit('setLoadingDetail', true);
   try {
-    const { data } = await axios.get(`${urls.lisdetailt}${id}`);
+    const { data } = await axios.get(`${urls.detail}${id}`);
     commit('setItem', data);
   } catch (error) {
     // TODO
@@ -31,5 +31,6 @@ export const fetchCoin = async ({ commit }, { id }) => {
 };
 
 export default {
-  fetchList
+  fetchList,
+  fetchCoin
 };

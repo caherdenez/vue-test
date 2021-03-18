@@ -10,12 +10,13 @@ export const setLoadingDetail = (state, payload) => {
   state.loading.detail = payload;
 };
 
-export const setIten = (state, payload) => {
+export const setItem = (state, payload) => {
   state.item = payload;
 };
 
 export default {
   setLoadingList,
   setItems,
-  setLoadingDetail
+  setLoadingDetail,
+  setItem
 };
