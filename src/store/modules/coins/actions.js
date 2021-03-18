@@ -5,10 +5,12 @@ const urls = {
     'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&page=1&sparkline=false',
   detail: 'https://api.coingecko.com/api/v3/coins/'
 };
+
 export const fetchList = async ({ commit }) => {
   commit('setLoadingList', true);
   try {
     const { data } = await axios.get(urls.list);
+    // console.debug(data);
     commit('setItems', data);
   } catch (error) {
     // TODO

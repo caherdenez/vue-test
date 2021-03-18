@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TBody.vue render 1`] = `
+<tr>
+  <td>1</td>
+  <td>Bitcoin</td>
+  <td><img height="35px" width="35px" src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579" alt="bitcoin"></td>
+  <td>57956</td>
+  <td>60186 / 57511</td>
+</tr>
+`;

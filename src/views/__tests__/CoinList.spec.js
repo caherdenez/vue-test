@@ -1,21 +1,31 @@
-import { shallowMount } from '@vue/test-utils';
+import flushPromises from 'flush-promises';
+import { mount } from '@vue/test-utils';
+import TBody from '@/components/table/TBody.vue';
+import mockList from '@/mocks/mock.list.json';
 import { createTestVue } from '@/lib/utils';
+import coinsStore from '@/store/modules/coins';
+
 import Component from '../CoinList.vue';
 
-xdescribe('CoinList.vue', () => {
-  it('render', () => {
-    const wrapper = shallowMount(Component);
-    console.debug(wrapper.html());
-  });
-});
+const modules = {
+  coins: {
+    ...coinsStore
+  }
+};
+
+jest.mock('axios', () => ({
+  get: () => Promise.resolve({ data: mockList })
+}));
 
 describe('CoinList.vue', () => {
-  it('render', () => {
-    const { localVue, store } = createTestVue({ modules: {} });
-    const wrapper = shallowMount(Component, {
+  it('render', async () => {
+    const { localVue, store } = createTestVue({ modules });
+    const wrapper = mount(Component, {
       localVue,
-      store,
+      store
     });
-    console.debug(wrapper.html());
+    await flushPromises();
+    const tbody = wrapper.findAllComponents(TBody);
+    expect(tbody).toHaveLength(15);
   });
 });
