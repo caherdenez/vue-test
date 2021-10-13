@@ -1,7 +1,7 @@
 import { setItems } from '../mutations';
 
 describe('setItems', () => {
-  it('setItems ', async () => {
+  it('setItems ', () => {
     const state = {
       items: []
     };

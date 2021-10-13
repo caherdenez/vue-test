@@ -40,7 +40,9 @@ export default {
     TBody
   },
   data() {
-    return {};
+    return {
+      id: this.$route.params.id
+    };
   },
   mounted() {
     this.fetchList();

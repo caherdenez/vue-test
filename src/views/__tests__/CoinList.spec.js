@@ -22,7 +22,17 @@ describe('CoinList.vue', () => {
     const { localVue, store } = createTestVue({ modules });
     const wrapper = mount(Component, {
       localVue,
-      store
+      store,
+      mocks: {
+        $route: {
+          params: {
+            id: 'mock-id'
+          }
+        }
+      },
+      stubs: {
+        TBody: { template: '<div><slot/></div>' }
+      }
     });
     await flushPromises();
     const tbody = wrapper.findAllComponents(TBody);
